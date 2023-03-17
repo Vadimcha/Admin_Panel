@@ -7,19 +7,19 @@ import './app.sass'
 import Content from "./components/Content";
 import Table from "./components/Table";
 import { CContainer } from '@coreui/react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Table_page from "./pages/TablePage";
+import Problems from './pages/Problems';
 
 function App() {
   return (
     <div className="App">
-        <Header />
-        <Sidebar />
-        <Content>
-            <CContainer className={"workers"}>
-                <h1>Сотрудники</h1>
-                <a href="" >Добавить</a>
-            </CContainer>
-            <Table></Table>
-        </Content>
+        <BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<Table_page />} />
+                <Route path={"/problems"} element={<Problems></Problems>} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
