@@ -1,5 +1,8 @@
 import React from 'react';
-import {CTable} from "@coreui/react";
+import {CSpinner, CTable } from "@coreui/react";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {themeSlice} from "../store/reducers/UserSlice";
+import {Users} from "../data/Users";
 
 const columns = [
     {
@@ -8,45 +11,37 @@ const columns = [
         _props: { scope: 'col' },
     },
     {
-        key: 'class',
+        key: 'name',
+        label: 'Name',
         _props: { scope: 'col' },
     },
     {
-        key: 'heading_1',
-        label: 'Heading',
+        key: 'phone',
+        label: 'Phone',
         _props: { scope: 'col' },
     },
     {
-        key: 'heading_2',
-        label: 'Heading',
+        key: 'location',
+        label: 'Location',
         _props: { scope: 'col' },
-    },
-]
-const items = [
-    {
-        id: 1,
-        class: 'Mark',
-        heading_1: 'Otto',
-        heading_2: '@mdo',
-        _cellProps: { id: { scope: 'row' } },
-    },
-    {
-        id: 2,
-        class: 'Jacob',
-        heading_1: 'Thornton',
-        heading_2: '@fat',
-        _cellProps: { id: { scope: 'row' } },
-    },
-    {
-        id: 3,
-        class: 'Larry the Bird',
-        heading_2: '@twitter',
-        _cellProps: { id: { scope: 'row' }, class: { colSpan: 2 } },
     },
 ]
 const Table = () => {
-    return (
-        <CTable style={{border: "1px solid #4e4e4e"}} color="dark" striped columns={columns} items={items} />
+    const theme = useAppSelector(state => state.userReducer.theme);
+    const { switch_theme } = themeSlice.actions;
+    const dispatch = useAppDispatch();
+    let items = Users()
+    if(items.length === 0)
+        return (
+            (theme === "dark" ?
+                <CSpinner color="light" style={{ display: "block", marginRight: "auto", marginLeft: "auto" }}/> :
+                <CSpinner color="dark" style={{ display: "block", marginRight: "auto", marginLeft: "auto" }}/>)
+        )
+
+    else return (
+        <div className={"Table_div"}>
+            <CTable color={theme} style={{ margin: "0", padding: "0" }} striped columns={columns} items={items} hover bordered responsive />
+        </div>
     );
 };
 

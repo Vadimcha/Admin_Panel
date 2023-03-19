@@ -1,10 +1,8 @@
 .content
-  margin-left: 63px
+  margin: 20px 220px 0px 250px
 
 .App
-  background-color: #212529
   height: 100vh
-  color: white
 
 .workers
   margin: 0
@@ -16,3 +14,35 @@
 a
   text-decoration: none
   color: #39f
+
+.Table_div
+  max-height: 75vh
+  overflow-y: scroll
+
+
+
+/* Работает в Firefox */
+*
+  scrollbar-width: thin
+  scrollbar-color: #a0a0a0 rgba(89, 89, 89, 0.37)
+  scroll-behavior: smooth
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar
+  width: 10px
+
+
+*::-webkit-scrollbar-track
+  background: rgba(89, 89, 89, 0.37)
+
+
+*::-webkit-scrollbar-thumb
+  background-color: #a0a0a0
+  border-radius: 7px
+
+@media screen and (max-width: 1100px)
+  .content
+    margin: 20px 10px 0px 10px
+
+.Adaptive_sidebar
+  background-color: red

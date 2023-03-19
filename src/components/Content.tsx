@@ -2,8 +2,8 @@ import React from 'react';
 
 const Content = (props : any) => {
     return (
-        <div style={{ marginLeft: "63px" }}>
-            <div style={{ margin: "20px 220px 0px 250px" }}>
+        <div style={{ marginLeft: (window.innerWidth > 1100 ? "63px" : "0px") }}>
+            <div className={"content"}>
                 { props.children }
             </div>
         </div>
