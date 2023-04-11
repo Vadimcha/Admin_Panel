@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Content from "../components/Content";
+import ProblemCard from '../components/ProblemCard';
 
 const Problems = () => {
     return (
@@ -11,7 +12,7 @@ const Problems = () => {
 
             <Content>
                 <h1>Задачи</h1>
-                <p>Задач пока нет)</p>
+                <ProblemCard />
             </Content>
         </div>
     );
