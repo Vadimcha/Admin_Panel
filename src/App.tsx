@@ -11,7 +11,7 @@ import Table from "./components/Table";
 import { CContainer } from '@coreui/react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Table_page from "./pages/TablePage";
-import Problems from './pages/Problems';
+import ProblemPage from './pages/ProblemsPage';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {themeSlice} from "./store/reducers/UserSlice";
 import { Users } from "./data/Users";
@@ -27,7 +27,7 @@ function App() {
         <BrowserRouter>
                 <Routes>
                     <Route path={"/"} element={<Table_page />} />
-                    <Route path={"/problems"} element={<Problems></Problems>} />
+                    <Route path={"/problems"} element={<ProblemPage />} />
                 </Routes>
         </BrowserRouter>
     </div>
