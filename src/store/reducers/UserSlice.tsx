@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 interface CounterState {
     theme: string,
     modal: boolean,
-    sidebar: boolean
+    sidebar: boolean,
+    cur_problem: number
 }
 
 let cook = document.cookie
@@ -15,6 +16,7 @@ const initialState: CounterState = {
     theme: theme,
     modal: false,
     sidebar: false,
+    cur_problem: 0
 }
 
 export const themeSlice = createSlice({
@@ -30,6 +32,9 @@ export const themeSlice = createSlice({
         },
         switch_sidebar(state) {
             state.sidebar = !state.sidebar
+        },
+        switch_problem(state, action) {
+            state.cur_problem = action.payload
         }
     }
 })

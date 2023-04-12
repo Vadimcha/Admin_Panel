@@ -5,5 +5,6 @@ export type Problem = {
     name: string,
     data: string,
     status: string,
+    full_dscr: string,
     post: string,
 }

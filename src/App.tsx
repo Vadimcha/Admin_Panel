@@ -15,6 +15,7 @@ import ProblemPage from './pages/ProblemsPage';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {themeSlice} from "./store/reducers/UserSlice";
 import { Users } from "./data/Users";
+import ProblemItemPage from "./pages/ProblemItemPage";
 
 
 
@@ -28,6 +29,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Table_page />} />
                     <Route path={"/problems"} element={<ProblemPage />} />
+                    <Route path={"/task"} element={<ProblemItemPage />} />
                 </Routes>
         </BrowserRouter>
     </div>
